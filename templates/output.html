@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Stock price prediction </title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+</head>
+
+<body>
+  <center>
+    
+    <div class="comtainer">
+        
+      {% if prediction_text|length ==0 %}
+        
+      <div class="alert alert-dark" role="alert">
+        No data Found !!
+      </div>
+        {% else %}
+          
+        <table class="table">
+          <thead>
+            <tr>
+              
+              <th scope="col">data</th>
+              
+            </tr>
+          </thead>
+          
+        <tbody>
+      {% for todo in prediction_text %}
+      
+      <tr>
+        
+        <td>{{todo.data}}</td>
+        
+      </tr>
+    
+  
+      {% endfor %}
+    </tbody>
+    </table>
+      {% endif %}
+      
+      
+    
+</div>
+    <div class="container">
+      <h2>Image</h2>
+      <img src="data:image/png;base64, {{ plot_url }}">
+    </div>
+  </center>
+</body>
+</html>
