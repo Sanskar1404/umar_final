@@ -34,8 +34,8 @@ def stock_analysis():
     if request.method == "POST":
         data = preprocessing()
         result = model.predict(data)
-        results = result[0:10]
-        return render_template('output.html', prediction_text=results)
+        
+        return render_template('output.html', prediction_text=result)
 
 
 if __name__ == "__main__":
